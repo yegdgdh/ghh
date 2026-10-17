@@ -1,10 +1,9 @@
-
 name: Build APK with Buildozer
 on: [push, workflow_dispatch]
 
 jobs:
   build:
-    runs-on: ubuntu-latest
+    runs-on: ubuntu-24.04
     steps:
     - uses: actions/checkout@v4
 
@@ -20,7 +19,7 @@ jobs:
         key: buildozer-global-${{ runner.os }}-${{ steps.get-date.outputs.date }}
 
     - name: Buildozer Action
-      uses: ArtemisAlpha/Buildozer-Action@v3
+      uses: ArtemisAlpha/Buildozer-Action@v3.2.1
       with:
         workdir: .
         buildozer_version: stable
